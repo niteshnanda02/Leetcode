@@ -1,6 +1,6 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        int index=1,prev=nums[0],cnt=1;
+        int index=1, cnt =1, prev = nums[0];
         for(int i=1;i<nums.length;i++){
             if(nums[i] == prev){
                 cnt++;
@@ -9,7 +9,7 @@ class Solution {
                     index++;
                 }
             }
-            // elem are not same
+            // elem are not matching
             else{
                 nums[index] = nums[i];
                 index++;
@@ -17,7 +17,6 @@ class Solution {
                 cnt = 1;
             }
         }
-        
         return index;
     }
 }
