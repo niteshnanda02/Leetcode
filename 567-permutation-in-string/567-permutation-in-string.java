@@ -1,7 +1,7 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
+        int n = s1.length(), m = s2.length();
         int[] arr = new int[26];
-        int n =s1.length(), m =s2.length();
         if(n>m)
             return false;
         int i=0;
@@ -9,6 +9,7 @@ class Solution {
             arr[s1.charAt(i)-'a']++;
             arr[s2.charAt(i)-'a']--;
         }
+        
         if(zero(arr))
             return true;
         
@@ -18,6 +19,7 @@ class Solution {
             if(zero(arr))
                 return true;
         }
+        
         return false;
     }
     
