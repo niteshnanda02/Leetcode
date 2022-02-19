@@ -1,24 +1,25 @@
 class Solution {
     public int minimumDeviation(int[] nums) {
         TreeSet<Integer> set = new TreeSet<>();
-        
         for(int e: nums){
             if(e%2!=0)
                 e=e*2;
             set.add(e);
         }
-        int diff=Integer.MAX_VALUE;
+        
+        int dev = Integer.MAX_VALUE;
         while(!set.isEmpty()){
-            int first =set.first();
+            int first = set.first();
             int last = set.last();
-            diff = Math.min(last-first, diff);
+            dev = Math.min(dev, last-first);
             if(last%2==0){
                 set.remove(last);
                 set.add(last/2);
-            }
-            else
+            }else{
                 break;
+            }
         }
-        return diff;
+        
+        return dev;
     }
 }
