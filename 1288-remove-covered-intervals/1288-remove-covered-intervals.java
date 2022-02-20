@@ -9,13 +9,13 @@ class Solution {
             }
         });
         
-        int[] temp = intervals[0];
+        int right = intervals[0][1];
         int c=1;
         for(int i=1;i<intervals.length;i++){
-            if(temp[1]>=intervals[i][1]){
+            if(right>=intervals[i][1]){
                 continue;
             }else{
-                temp=intervals[i];
+                right=intervals[i][1];
                 c++;            
             }
         }
