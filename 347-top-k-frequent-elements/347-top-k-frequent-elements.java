@@ -15,7 +15,7 @@ class Solution {
         for(int x:nums)
             map.put(x, map.getOrDefault(x, 0) +1);
         
-        PriorityQueue<Node> queue = new PriorityQueue<>();
+        PriorityQueue<Node> queue = new PriorityQueue<>(k);
         for(Map.Entry<Integer, Integer> entry: map.entrySet()){
             queue.add(new Node(entry.getKey(), entry.getValue()));
         }
