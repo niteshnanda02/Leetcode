@@ -14,16 +14,22 @@
  * }
  */
 class Solution {
-    TreeNode head=null, tail=null;
+    TreeNode head, tail;
     public TreeNode increasingBST(TreeNode root) {
+        head=null; tail=null;
         inorder(root);
+        
         return head;
     }
     
     void inorder(TreeNode node){
+        // base condition
         if(node==null)
             return;
+        // LDR
         inorder(node.left);
+        
+        // processing over data
         TreeNode nn = new TreeNode(node.val);
         if(head==null){
             head=nn;
