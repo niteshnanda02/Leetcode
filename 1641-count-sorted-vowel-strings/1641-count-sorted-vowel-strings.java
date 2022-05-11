@@ -1,23 +1,15 @@
 class Solution {
-    List<String> list;
-    char[] arr = {'a', 'e','i','o','u'};
     public int countVowelStrings(int n) {
-        list = new ArrayList<>();
-        solve(n, 0, new StringBuilder());
-        return list.size();
-    }
-    
-    void solve(int n, int start, StringBuilder builder){
+        int[][] dp = new int[n+1][6];
         
-        if(n==0){
-            list.add(builder.toString());
-            return;
+        for(int i=1;i<n+1;i++){
+            for(int j=1;j<6;j++){
+                if(i==1){
+                    dp[i][j] = 1+dp[i][j-1];
+                }else
+                    dp[i][j]=dp[i-1][j]+dp[i][j-1];
+            }
         }
-        
-        for(int i=start; i<5;i++){
-            builder.append(arr[i]);
-            solve(n-1, i, builder);
-            builder.deleteCharAt(builder.length()-1);
-        }
+        return dp[n][5];
     }
 }
