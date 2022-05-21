@@ -1,7 +1,6 @@
 class Solution {
     int[][] dp;
     public int coinChange(int[] coins, int amount) {
-        Arrays.sort(coins);
         dp = new int[coins.length+1][amount+1];
         for(int[] a: dp)
             Arrays.fill(a,-1);
